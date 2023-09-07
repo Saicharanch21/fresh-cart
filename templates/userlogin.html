@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/login.css">
+    <link rel="stylesheet" href="/static/flash.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <nav class="navi">
+            <span class="title">Fresh Cart</span> 
+        </nav>
+        <hr class="hr">
+    </div>
+    <div class="flash-con">
+    {% with messages= get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-msg {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div>
+    <div class='body'>
+      <div class='login'>
+        <form action="/userlogin" method="POST" >
+        <h1>User Login</h1>
+        <label class="admin" for="1234">Username :</label>
+        <input class="admin" type="text" id="1234" name="username" placeholder="Enter username" required><br>
+        <label class="admin" for="1235">Password :</label>
+        <input class="admin" type="password" id="1235" name="password" placeholder="Enter Password" required><br>
+        <button class="admin" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+</body>
+</html>

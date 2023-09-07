@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/static/add.css">
+    <link rel="stylesheet" href="/static/flash.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <nav>
+            <span>Admin</span> 
+            <span>Fresh Cart</span> 
+            <span><a href="/logout" >Logout</a></span>
+        </nav>
+        <hr>
+    </div>
+    <div class="flash-con">
+        {% with messages= get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-msg {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="form">
+        <h2>Edit Product details</h2>
+        <form method="post" action="/{{ category }}/{{ prod.product_name }}/actions">
+            <label for="121">Product Name :</label>
+            <input type="text" id="121" name="prod_name" value="{{ prod.product_name }}" required><br>
+            <label for="122">Unit :</label>
+            <select id="122" name="unit">
+                <option value="Kg">Kg</option>
+                <option value="Litre">Litre</option>
+                <option value="Dozen">Dozen</option>
+                <option value="Gram">Gram</option>
+                <option value="Ml">Milli litre</option>
+            </select><br>
+            <label for="123">Price/unit :</label>
+            <input type="number" name="price" min="1" id="123" value="{{ prod.price }}" required><br>
+            <label for="124">Quantity :</label>
+            <input type="number" name="quantity" min="1" id="124" value="{{ prod.quantity }}" required><br>
+            <label for="125">Expiry date :</label>
+            <input type="date" name="date" id="125" value="{{prod.expiry_date
+            }}"><br>
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+</body>
+</html>

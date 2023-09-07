@@ -1,0 +1,46 @@
+.navi{
+    margin-top: 10px;
+    padding: 5px 5px;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.hr{
+    margin: 0px 0px;
+}
+.title{
+    font-family: 'Borel', cursive;
+    color: rgb(7, 214, 93);
+    font-size: 30px;
+}
+.links{
+    text-decoration: none;
+}
+nav{
+    padding: 5px 5px;
+    margin-top: 0px;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+}
+.form{
+    font-size: 18px;
+    border: 1px solid lightslategray;
+    padding: 20px 20px;
+    margin: 50px 450px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+input{
+    margin-top: 20px;
+    width: 150px;
+}

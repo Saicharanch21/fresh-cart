@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/flash.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <nav class="navi">
+            <span>User Dashboard</span>
+            <span class="title">Fresh Cart</span> 
+            <span><a class="links" href="/orders">Orders</a> | <a class="links" href="/cart">Cart</a> | <a class="links" href="/logout" >Logout</a></span>
+        </nav>
+        <hr class="hr">
+    </div>
+    <div class="flash-con">
+    {% with messages= get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-msg {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div>
+    <div class="dashboard">
+        {% for category in categories %}
+            <div class="categories">
+                <div class="cat">
+                    <p style="font-size: 21px;"><b>{{category.category_name}}</b></p>
+                    <div class="products">
+                        {% for product in category.products %}
+                            <div class="prod">
+                                <p style="font-size: larger; font: italic;font-weight: bold;">{{ product.product_name }}</p>
+                                {% if product.quantity>0 %}
+                                    <p>Price : Rs.{{ product.price }}/{{ product.unit }}</p>
+                                    <form action="/add_to_cart/{{product.product_name}}" method="post">
+                                        <label for="quantity">Quantity :</label>
+                                        <input style="width:40px;" id="quantity" name="quantity" type="number" min="1" max="{{product.quantity}}" required>{{product.unit}}<br>
+                                        <button class="button" type="submit">Add to cart</button>
+                                    </form>
+                                {% else %}
+                                    <button class="ofs">Out of Stock</button>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>  
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

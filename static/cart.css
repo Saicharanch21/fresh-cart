@@ -1,0 +1,46 @@
+.navi{
+    margin-top: 10px;
+    padding: 5px 5px;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex; 
+    justify-content: space-between;
+    align-items: baseline;
+}
+.hr{
+    margin: 0px 0px;
+}
+.title{
+    font-family: 'Borel', cursive;
+    color: rgb(7, 214, 93);
+    font-size: 30px;
+}
+.links{
+    text-decoration: none;
+}
+.cart{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.items{
+    min-height: 50px;
+    display: flex;
+    border: 1px solid lightslategray;
+    border-radius: 25px;
+    margin: 10px 20px;
+    padding: 10px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.tot{
+    position: fixed;
+    bottom: 10px;
+}
+.summ{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 20px;
+    padding: 10px 10px;
+    justify-content: space-between;
+}
